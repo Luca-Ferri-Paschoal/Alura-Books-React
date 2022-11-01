@@ -1,0 +1,10 @@
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu li p {
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}

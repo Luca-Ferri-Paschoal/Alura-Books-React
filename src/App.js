@@ -1,14 +1,10 @@
 import './App.css';
-import Logo from './components/Logo';
+import Cabecalho from './components/Cabecalho';
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1>
-          <Logo />
-        </h1>
-      </header>
+      <Cabecalho />
     </div>
   );
 }
