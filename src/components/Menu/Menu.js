@@ -1,9 +1,25 @@
-import './Menu.css';
+import styled from 'styled-components';
+
+const MenuContainer = styled.nav`
+    ul {
+        display: flex;
+        gap: 20px;
+    }
+
+    ul li {
+        cursor: pointer;
+    }
+
+    ul li p {
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+`;
 
 export const Menu = ({ itens, type='texto' }) => {
     return (
-        <nav>
-            <ul className='menu'>
+        <MenuContainer>
+            <ul>
                 {itens.map((item, index) => 
                     <li key={index}>
                         {type === 'imagem'
@@ -13,6 +29,6 @@ export const Menu = ({ itens, type='texto' }) => {
                     </li>
                 )}
             </ul>
-        </nav>
+        </MenuContainer>
     );
 };
