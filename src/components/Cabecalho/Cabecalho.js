@@ -1,4 +1,3 @@
-import './Cabecalho.css';
 import Logo from './../Logo';
 import Menu from './../Menu';
 import perfil from './../../imgs/perfil.svg';
