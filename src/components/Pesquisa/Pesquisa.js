@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BiSearchAlt } from 'react-icons/bi'
 import { useState } from 'react';
+import { livros as listaLivros } from './dadosPesquisa';
 
 const PesquisaContainer = styled.section`
     max-width: 600px;
@@ -65,19 +66,47 @@ export const Pesquisa = props => {
         outline: 'none',
     }
 
+    const [
+        nomeLivroPesquisado,
+        setNomeLivroPesquisado
+    ] = useState('');
+
+    const [
+        livros,
+        setLivros
+    ] = useState([]);
+
+    const pesquisaLivro = e => {
+        const pesquisado = e.target.value;
+
+        setNomeLivroPesquisado(pesquisado);
+
+        setLivros(listaLivros.filter(
+            livro => livro.nome.includes(pesquisado)
+        ));
+    }
+
+    const aoSubmeter = e => {
+        e.preventDefault();
+
+        console.log(nomeLivroPesquisado);
+    }
+
     return (
         <PesquisaContainer>
             <h2>Já sabe por onde começar?</h2>
             <h3>Encontre seu livro em nossa estante.</h3>
-            <form>
+            <form onSubmit={aoSubmeter}>
                 <BiSearchAlt style={cssIcon('left')} />
                 <input
                     style={cssInput}
                     onFocus={() => mudaCor('#FFF')}
                     onBlur={() => mudaCor('#BBB')}
+                    value={nomeLivroPesquisado}
+                    onChange={pesquisaLivro}
                     placeholder='Escreva sua próxima leitura'
                 />
-                <button
+                <button type='submit'
                     style={cssIcon('right')}
                 >
                     <AiOutlineArrowRight />
