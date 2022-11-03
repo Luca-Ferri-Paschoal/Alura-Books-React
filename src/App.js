@@ -1,4 +1,5 @@
 import Cabecalho from './components/Cabecalho';
+import Pesquisa from './components/Pesquisa';
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
@@ -15,6 +16,7 @@ function App() {
   return (
     <AppContainer >
       <Cabecalho />
+      <Pesquisa />
     </AppContainer>
   );
 }
