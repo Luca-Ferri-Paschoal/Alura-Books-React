@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BiSearchAlt } from 'react-icons/bi'
 import { useState } from 'react';
-import { livros as listaLivros } from './dadosPesquisa';
+import CardLivro from '../CardLivro';
+import { filtraLivros } from './functions';
 
-const PesquisaContainer = styled.section`
+const PesquisaContainer = styled.div`
     max-width: 600px;
     margin: 0 auto;
     padding: 80px 0;
@@ -35,6 +36,12 @@ const PesquisaContainer = styled.section`
     }
 `;
 
+const ResultadoContainer = styled.div`
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+`;
+
 export const Pesquisa = props => {
     const [cor, setCor] = useState('#BBB');
 
@@ -42,7 +49,7 @@ export const Pesquisa = props => {
         setCor(novaCor);
     }
 
-    const cssIcon = direcao => {
+    const criaCssIcon = direcao => {
         const css = {
             position: 'absolute',
             width: '20px',
@@ -81,37 +88,50 @@ export const Pesquisa = props => {
 
         setNomeLivroPesquisado(pesquisado);
 
-        setLivros(listaLivros.filter(
-            livro => livro.nome.includes(pesquisado)
-        ));
+        let listaLivros = pesquisado.trim() !== ''
+            ? filtraLivros(pesquisado, 4)
+            : []
+        ;
+
+        setLivros(listaLivros)
     }
 
     const aoSubmeter = e => {
         e.preventDefault();
-
-        console.log(nomeLivroPesquisado);
     }
 
     return (
-        <PesquisaContainer>
-            <h2>Já sabe por onde começar?</h2>
-            <h3>Encontre seu livro em nossa estante.</h3>
-            <form onSubmit={aoSubmeter}>
-                <BiSearchAlt style={cssIcon('left')} />
-                <input
-                    style={cssInput}
-                    onFocus={() => mudaCor('#FFF')}
-                    onBlur={() => mudaCor('#BBB')}
-                    value={nomeLivroPesquisado}
-                    onChange={pesquisaLivro}
-                    placeholder='Escreva sua próxima leitura'
-                />
-                <button type='submit'
-                    style={cssIcon('right')}
-                >
-                    <AiOutlineArrowRight />
-                </button>
-            </form>
-        </PesquisaContainer>
+        <section>
+            <PesquisaContainer>
+                <h2>Já sabe por onde começar?</h2>
+                <h3>Encontre seu livro em nossa estante.</h3>
+                <form onSubmit={aoSubmeter}>
+                    <BiSearchAlt style={criaCssIcon('left')} />
+                    <input
+                        style={cssInput}
+                        onFocus={() => mudaCor('#FFF')}
+                        onBlur={() => mudaCor('#BBB')}
+                        value={nomeLivroPesquisado}
+                        onChange={pesquisaLivro}
+                        placeholder='Escreva sua próxima leitura'
+                    />
+                    <button type='submit'
+                        style={criaCssIcon('right')}
+                    >
+                        <AiOutlineArrowRight />
+                    </button>
+                </form>
+            </PesquisaContainer>
+            <ResultadoContainer>
+                {
+                    livros.map((livro, index) => {
+                        return <CardLivro 
+                            key={index}
+                            livro={livro}
+                        />
+                    })
+                }
+            </ResultadoContainer>
+        </section>
     );
 }

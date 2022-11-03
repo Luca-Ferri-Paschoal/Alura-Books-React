@@ -6,25 +6,30 @@ export const livros = [
         nome: 'Liderança em Design',
         id: uuidv4(),
         src: livro,
+        alt: 'Capa do livro',
     },
     {
         nome: 'Cangaceiro JavaScript',
         id: uuidv4(),
         src: livro,
+        alt: 'Capa do livro',
     },
     {
         nome: 'Calopsita Python',
         id: uuidv4(),
         src: livro,
+        alt: 'Capa do livro',
     },
     {
-        nome: 'Assemply Topzera',
+        nome: 'Assembly Topzera',
         id: uuidv4(),
         src: livro,
+        alt: 'Capa do livro',
     },
     {
         nome: 'Fluência em Binário',
         id: uuidv4(),
         src: livro,
+        alt: 'Capa do livro',
     },
 ];
