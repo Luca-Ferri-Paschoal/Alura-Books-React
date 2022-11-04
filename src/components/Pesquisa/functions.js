@@ -9,7 +9,7 @@ export const filtraLivros = ({ texto, breaker }) => {
         }
 
         if (
-            listaLivros[i].nome.toLocaleLowerCase().includes(texto.toLocaleLowerCase())
+            listaLivros[i].nome.toLocaleLowerCase().includes(texto.toLocaleLowerCase().trim())
         ) {
             arrayLivros.push(listaLivros[i]);
         }

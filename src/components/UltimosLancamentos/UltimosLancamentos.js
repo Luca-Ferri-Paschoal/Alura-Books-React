@@ -12,6 +12,7 @@ const UltimosLancamentosContainer = styled.section`
         text-align: center;
         padding: 20px;
         background-color: #FFF;
+        text-transform: uppercase;
     }
 `;
 
