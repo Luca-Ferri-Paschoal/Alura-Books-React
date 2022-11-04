@@ -6,7 +6,8 @@ import styled from 'styled-components';
 
 const CabecalhoContainer = styled.header`
     background-color: #fff;
-    padding: 30px;
+    height: 100px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;

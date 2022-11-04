@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { BiSearchAlt } from 'react-icons/bi'
 import { useState } from 'react';
-import CardLivro from '../CardLivro';
 import { filtraLivros } from './functions';
+import ListaCardLivros from '../ListaCardLivros';
 
 const PesquisaContainer = styled.div`
     max-width: 600px;
     margin: 0 auto;
-    padding: 80px 0;
+    padding: 80px 0 0;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -126,14 +126,9 @@ export const Pesquisa = props => {
                 </form>
             </PesquisaContainer>
             <ResultadoContainer>
-                {
-                    livros.map((livro, index) => {
-                        return <CardLivro 
-                            key={index}
-                            livro={livro}
-                        />
-                    })
-                }
+                <ListaCardLivros 
+                    livros={livros}
+                />
             </ResultadoContainer>
         </section>
     );
