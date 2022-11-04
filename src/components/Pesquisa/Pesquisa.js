@@ -125,7 +125,7 @@ export const Pesquisa = props => {
                     </button>
                 </form>
             </PesquisaContainer>
-            <ResultadoContainer>
+            <ResultadoContainer style={{ color: '#ffa500'}}>
                 <ListaCardLivros 
                     livros={livros}
                 />

@@ -5,7 +5,7 @@ const LivroContainer = styled.div`
     color: inherit;
     display: inline-block;
     padding: 10px;
-    width: 150px;
+    width: 170px;
     border-radius: 10px;
     box-shadow: 2px 2px 10px 0 #444;
 
@@ -16,9 +16,9 @@ const LivroContainer = styled.div`
     }
 
     h4 {
-        font-size: 12px;
+        font-size: 14px;
         text-align: center;
-        font-weight: 500;
+        font-weight: 700;
     }
 
     :hover {

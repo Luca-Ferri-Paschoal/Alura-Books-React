@@ -8,7 +8,7 @@ const UltimosLancamentosContainer = styled.section`
 
     h2 {
         font-size: 24px;
-        font-weight: 600;
+        font-weight: 700;
         text-align: center;
         padding: 20px;
         background-color: #FFF;
@@ -17,11 +17,10 @@ const UltimosLancamentosContainer = styled.section`
 
 export const UltimosLancamentos = props => {
     const cssContainer = props.css;
-    console.log(cssContainer);
 
     return (
         <UltimosLancamentosContainer style={cssContainer}>
-            <h2>Ultimos Lançamentos</h2>
+            <h2>Últimos Lançamentos</h2>
             <ListaCardLivros
                 livros={livros}
             />
