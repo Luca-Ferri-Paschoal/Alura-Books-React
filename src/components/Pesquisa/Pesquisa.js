@@ -89,7 +89,10 @@ export const Pesquisa = props => {
         setNomeLivroPesquisado(pesquisado);
 
         let listaLivros = pesquisado.trim() !== ''
-            ? filtraLivros(pesquisado, 4)
+            ? filtraLivros({ 
+                texto: pesquisado, 
+                breaker: 4 
+            })
             : []
         ;
 

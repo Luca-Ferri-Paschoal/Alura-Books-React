@@ -1,6 +1,6 @@
 import { livros as listaLivros } from './dadosPesquisa';
 
-export const filtraLivros = (texto, breaker) => {
+export const filtraLivros = ({ texto, breaker }) => {
     const arrayLivros = [];
 
     for (let i = 0;  i < listaLivros.length; i++) {
